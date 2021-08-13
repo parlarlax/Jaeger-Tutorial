@@ -1,0 +1,33 @@
+package di
+
+import (
+	"eaxmple/jaeker/echo/app"
+	"eaxmple/jaeker/echo/res/middleware"
+	"eaxmple/jaeker/echo/res/router"
+	"eaxmple/jaeker/echo/res/service"
+	"eaxmple/jaeker/echo/res/handler"
+)
+
+
+func Inject(ap *app.Properties) {
+	injectRest(ap)
+	injectDomain(ap)
+	injectAdapter(ap)
+}
+
+func injectDomain(ap *app.Properties) {
+	// msgCode.Properties(ap)
+	// searchDomain.Properties(ap)
+}
+
+func injectAdapter(ap *app.Properties) {
+	// oracleConnecting.Properties(ap)
+	// searchRepo.Properties(ap)
+}
+
+func injectRest(ap *app.Properties) {
+	router.Properties(ap)
+	middleware.Properties(ap)
+	handler.Properties(ap)
+	service.Properties(ap)
+}
