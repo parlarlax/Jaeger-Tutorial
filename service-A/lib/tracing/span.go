@@ -18,3 +18,8 @@ func StartSpanFromRequestPong(tracer opentracing.Tracer, r *http.Request) opentr
 	spanCtx, _ := Extract(tracer, r)
 	return tracer.StartSpan("ping-receive", ext.RPCServerOption(spanCtx))
 }
+
+func StartSpanFromRequest(tracer opentracing.Tracer, r *http.Request) opentracing.Span {
+	spanCtx, _ := Extract(tracer, r)
+	return tracer.StartSpan("hello", ext.RPCServerOption(spanCtx))
+}
